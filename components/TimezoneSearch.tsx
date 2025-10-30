@@ -53,7 +53,7 @@ export default function TimezoneSearch({ onSelect, selectedTimezones }: Timezone
   };
 
   return (
-    <div className="relative w-full max-w-2xl">
+    <div className="relative w-full">
       <div className="relative">
         <input
           type="text"

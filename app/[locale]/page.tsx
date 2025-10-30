@@ -23,7 +23,7 @@ export default function Home() {
 
         {/* 圆形时钟 - 显示本地时区 */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8">
+          <div className="rounded-3xl p-8">
             <AnalogClock timezone={Intl.DateTimeFormat().resolvedOptions().timeZone} />
           </div>
         </div>

@@ -11,7 +11,7 @@ interface AnalogClockProps {
     size?: number;
 }
 
-export default function AnalogClock({ timezone, size = 200 }: AnalogClockProps) {
+export default function AnalogClock({ timezone, size = 300 }: AnalogClockProps) {
     const locale = useLocale() as 'zh' | 'en';
     const timestamp = useClock(1000);
     const time = useTimezone(timezone, timestamp);

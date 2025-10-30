@@ -43,9 +43,6 @@ export default function Home() {
           selectedTimezone={selectedTimezone}
         />
 
-        <footer className="mt-8 sm:mt-12 text-center text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-          <p>{t('footer')}</p>
-        </footer>
       </div>
     </div>
   );

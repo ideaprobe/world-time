@@ -2,7 +2,6 @@
   "title": "World Time",
   "description": "View current time across different time zones",
   "languageSwitch": "Switch Language",
-  "footer": "Built with Next.js and next-intl",
   "search": {
     "placeholder": "Search timezone...",
     "showing": "Showing",

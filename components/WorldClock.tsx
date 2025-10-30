@@ -25,8 +25,8 @@ export default function WorldClock({ onTimezoneSelect, selectedTimezone }: World
   // 处理时区选择/取消
   const handleTimezoneToggle = (timezones: string[]) => {
     setSelectedTimezones(timezones);
-    // 如果当前选中的时区被移除了，选择第一个
-    if (timezones.length > 0 && !timezones.includes(selectedTimezone)) {
+    // 选择第一个时区（新添加或移到第一位的）
+    if (timezones.length > 0) {
       onTimezoneSelect(timezones[0]);
     }
   };

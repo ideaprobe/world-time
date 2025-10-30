@@ -45,9 +45,12 @@ export default function TimezoneSearch({ onSelect, selectedTimezones }: Timezone
 
   const handleToggleTimezone = (timezone: string) => {
     if (selectedTimezones.includes(timezone)) {
-      onSelect(selectedTimezones.filter(tz => tz !== timezone));
+      // 如果已经在列表中，移到第一位
+      const filtered = selectedTimezones.filter(tz => tz !== timezone);
+      onSelect([timezone, ...filtered]);
     } else {
-      onSelect([...selectedTimezones, timezone]);
+      // 将新选中的时区放到数组第一位
+      onSelect([timezone, ...selectedTimezones]);
     }
     setSearchQuery('');
   };

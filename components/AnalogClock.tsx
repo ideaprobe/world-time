@@ -11,7 +11,7 @@ interface AnalogClockProps {
     size?: number;
 }
 
-export default function AnalogClock({ timezone, size = 300 }: AnalogClockProps) {
+export default function AnalogClock({ timezone, size = 200 }: AnalogClockProps) {
     const locale = useLocale() as 'zh' | 'en';
     const timestamp = useClock(1000);
     const time = useTimezone(timezone, timestamp);
@@ -19,15 +19,15 @@ export default function AnalogClock({ timezone, size = 300 }: AnalogClockProps) 
     // 如果时间还未初始化，显示加载状态
     if (!time) {
         return (
-            <div className="flex flex-col items-center gap-4">
-                <div 
+            <div className="flex flex-col items-center gap-3">
+                <div
                     style={{ width: size, height: size }}
                     className="rounded-full bg-gray-100 dark:bg-gray-800 animate-pulse"
                 />
-                <div className="text-center space-y-2">
-                    <div className="h-6 w-32 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
-                    <div className="h-8 w-40 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
-                    <div className="h-4 w-36 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+                <div className="text-center space-y-1.5">
+                    <div className="h-5 w-28 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+                    <div className="h-7 w-36 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+                    <div className="h-3 w-32 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
                 </div>
             </div>
         );
@@ -46,7 +46,7 @@ export default function AnalogClock({ timezone, size = 300 }: AnalogClockProps) 
 
     const dayjsLocale = locale === 'zh' ? 'zh-cn' : 'en';
     const formattedDate = time.locale(dayjsLocale).format('ddd, MMM D, YYYY');
-    
+
     // 获取时区信息
     const timezoneInfo = timezoneLocales[timezone];
     const cityName = timezoneInfo ? timezoneInfo[locale] : timezone;

@@ -60,10 +60,10 @@ export default function TimezoneSearch({ onSelect, selectedTimezones }: Timezone
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder={locale === 'zh' ? '搜索时区...' : 'Search timezone...'}
-          className="w-full px-4 py-3 pl-12 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400"
+          className="w-full px-4 py-2.5 sm:py-3 pl-11 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-0 focus:ring-indigo-400 dark:focus:ring-indigo-500 focus:border-indigo-400 dark:focus:border-indigo-500 transition-all shadow-sm focus:shadow-md"
         />
         <svg
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+          className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -79,32 +79,32 @@ export default function TimezoneSearch({ onSelect, selectedTimezones }: Timezone
 
       {/* 搜索结果下拉框 */}
       {searchResults.length > 0 && (
-        <div className="absolute z-10 w-full mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 max-h-96 overflow-y-auto">
+        <div className="absolute z-10 w-full mt-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-md rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 max-h-96 overflow-y-auto">
           {searchResults.map(({ item }) => {
             const isSelected = selectedTimezones.includes(item.timezone);
             return (
               <button
                 key={item.timezone}
                 onClick={() => handleToggleTimezone(item.timezone)}
-                className={`w-full px-4 py-3 text-left hover:bg-gray-50 dark:hover:bg-gray-700 border-b border-gray-100 dark:border-gray-700 last:border-b-0 transition-colors ${
-                  isSelected ? 'bg-indigo-50 dark:bg-indigo-900/20' : ''
+                className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 border-b border-gray-100 dark:border-gray-700/50 last:border-b-0 transition-colors ${
+                  isSelected ? 'bg-indigo-50/80 dark:bg-indigo-900/20' : ''
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{timezoneLocales[item.timezone].flag}</span>
-                    <div>
-                      <div className="font-medium text-gray-900 dark:text-white">
+                  <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+                    <span className="text-xl sm:text-2xl shrink-0">{timezoneLocales[item.timezone].flag}</span>
+                    <div className="min-w-0 flex-1">
+                      <div className="font-medium text-sm sm:text-base text-gray-900 dark:text-white truncate">
                         {item.name}
                       </div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400">
+                      <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 truncate">
                         {item.timezone} • UTC{timezoneLocales[item.timezone].offset}
                       </div>
                     </div>
                   </div>
                   {isSelected && (
                     <svg
-                      className="w-5 h-5 text-indigo-600 dark:text-indigo-400"
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-600 dark:text-indigo-400 shrink-0 ml-2"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >

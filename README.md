@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌍 World Time - 世界时间
 
-## Getting Started
+一个使用 Next.js 和 next-intl 构建的世界时间应用，支持中英文国际化。
 
-First, run the development server:
+## ✨ 特性
+
+- 🕐 圆形模拟时钟显示本地时间
+- 🔍 智能搜索功能（使用 Fuse.js）
+- 🌐 支持全球 418 个时区
+- 🌍 支持中英文切换（使用 next-intl）
+- 🎨 现代化 UI 设计，支持深色模式
+- ⚡ 使用 Framer Motion 实现流畅动画
+- 📱 完全响应式设计
+- ⏰ 使用 Day.js 进行时间格式化
+
+## 🚀 快速开始
+
+安装依赖：
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+运行开发服务器：
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+打开浏览器访问 [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+## 🏗️ 技术栈
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js 16** - React 框架
+- **next-intl** - 国际化解决方案
+- **Tailwind CSS** - 样式框架
+- **Framer Motion** - 动画库
+- **Day.js** - 时间处理库
+- **Fuse.js** - 模糊搜索引擎
+- **TypeScript** - 类型安全
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 项目结构
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+├── app/
+│   └── [locale]/          # 国际化路由
+│       ├── layout.tsx     # 布局组件
+│       └── page.tsx       # 主页面
+├── components/            # React 组件
+│   ├── WorldClock.tsx     # 世界时钟主组件
+│   ├── TimeZoneCard.tsx   # 时区卡片组件
+│   └── LanguageSwitcher.tsx # 语言切换器
+├── messages/              # 国际化翻译文件
+│   ├── en.json           # 英文
+│   └── zh.json           # 中文
+├── i18n.ts               # next-intl 配置
+└── middleware.ts         # 国际化中间件
+```
 
-## Deploy on Vercel
+## 🌏 支持的时区
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+应用支持所有 **417 个** IANA 时区，默认显示 18 个热门城市：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 🇨🇳 上海 / Shanghai
+- 🇯🇵 东京 / Tokyo
+- 🇰🇷 首尔 / Seoul
+- 🇭🇰 香港 / Hong Kong
+- 🇸🇬 新加坡 / Singapore
+- 🇦🇪 迪拜 / Dubai
+- 🇬🇧 伦敦 / London
+- 🇫🇷 巴黎 / Paris
+- 🇩🇪 柏林 / Berlin
+- 🇷🇺 莫斯科 / Moscow
+- 🇺🇸 纽约 / New York
+- 🇺🇸 洛杉矶 / Los Angeles
+- 🇺🇸 芝加哥 / Chicago
+- 🇨🇦 多伦多 / Toronto
+- 🇲🇽 墨西哥城 / Mexico City
+- 🇧🇷 圣保罗 / São Paulo
+- 🇦🇺 悉尼 / Sydney
+- 🇳🇿 奥克兰 / Auckland
+
+所有时区数据通过 `Intl.supportedValuesOf('timeZone')` 自动生成。
+
+## 📝 License
+
+MIT

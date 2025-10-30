@@ -1,0 +1,12 @@
+{
+  "title": "世界时间",
+  "description": "查看不同时区的当前时间",
+  "languageSwitch": "切换语言",
+  "footer": "使用 Next.js 和 next-intl 构建",
+  "search": {
+    "placeholder": "搜索时区...",
+    "showing": "显示",
+    "timezones": "个时区",
+    "noResults": "请搜索并选择时区"
+  }
+}

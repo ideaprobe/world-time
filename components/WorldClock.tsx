@@ -52,7 +52,7 @@ export default function WorldClock({ onTimezoneSelect, selectedTimezone }: World
           return (
             <TimeZoneCard
               key={timezone}
-              city={localeData[locale]}
+              city={localeData.name[locale]}
               timezone={timezone}
               flag={localeData.flag}
               offset={localeData.offset}

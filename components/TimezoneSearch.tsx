@@ -18,11 +18,11 @@ export default function TimezoneSearch({ onSelect, selectedTimezones }: Timezone
   const searchData = useMemo(() => {
     return timezoneKeys.map(tz => ({
       timezone: tz,
-      name: timezoneLocales[tz][locale],
-      enName: timezoneLocales[tz].en,
-      zhName: timezoneLocales[tz].zh,
-      region: timezoneLocales[tz].region,
-      regionZh: timezoneLocales[tz].regionZh,
+      name: timezoneLocales[tz].name[locale as 'zh' | 'en'],
+      enName: timezoneLocales[tz].name.en,
+      zhName: timezoneLocales[tz].name.zh,
+      region: timezoneLocales[tz].region.en,
+      regionZh: timezoneLocales[tz].region.zh,
     }));
   }, [locale]);
 

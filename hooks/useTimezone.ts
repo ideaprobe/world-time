@@ -7,24 +7,24 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 export function useTimezone(tz: string, timestamp: number | null): Dayjs | null {
-    const [time, setTime] = useState<Dayjs | null>(null);
+  const [time, setTime] = useState<Dayjs | null>(null);
 
-    useEffect(() => {
-        const fn = () => {
-            if (timestamp === null) {
-                setTime(null);
-                return;
-            }
+  useEffect(() => {
+    const fn = () => {
+      if (timestamp === null) {
+        setTime(null);
+        return;
+      }
 
-            setTime(dayjs(timestamp).tz(tz));
-        };
-        if (timestamp === null) {
-            fn()
-            return;
-        }
+      setTime(dayjs(timestamp).tz(tz));
+    };
+    if (timestamp === null) {
+      fn();
+      return;
+    }
 
-        fn()
-    }, [timestamp, tz]);
+    fn();
+  }, [timestamp, tz]);
 
-    return time;
+  return time;
 }

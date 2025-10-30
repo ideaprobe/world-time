@@ -38,7 +38,7 @@ export default function Home() {
           </div>
         )}
 
-        <WorldClock 
+        <WorldClock
           onTimezoneSelect={setSelectedTimezone}
           selectedTimezone={selectedTimezone}
         />

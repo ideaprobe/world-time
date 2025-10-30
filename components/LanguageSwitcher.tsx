@@ -13,7 +13,7 @@ export default function LanguageSwitcher() {
   const switchLocale = () => {
     const nextLocale = locale === 'en' ? 'zh' : 'en';
     const newPathname = pathname.replace(`/${locale}`, `/${nextLocale}`);
-    
+
     startTransition(() => {
       router.replace(newPathname);
     });

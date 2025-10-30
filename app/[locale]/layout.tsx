@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
-import "../globals.css";
+import '../globals.css';
 
 export const metadata: Metadata = {
-  title: "World Time",
-  description: "View current time across different time zones",
+  title: 'World Time',
+  description: 'View current time across different time zones',
 };
 
 export default async function LocaleLayout({
@@ -18,7 +18,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  
+
   if (!locales.includes(locale as any)) {
     notFound();
   }

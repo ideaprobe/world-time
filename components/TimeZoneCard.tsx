@@ -28,11 +28,7 @@ export default function TimeZoneCard({ city, timezone, flag, offset, isSelected 
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
         onClick={onClick}
-        className={`backdrop-blur-sm rounded-lg p-2 sm:p-3 border transition-all ${
-          isSelected
-            ? 'bg-indigo-50/90 dark:bg-indigo-900/30 border-indigo-300 dark:border-indigo-600 shadow-lg shadow-indigo-200/50 dark:shadow-indigo-900/50'
-            : 'bg-white/80 dark:bg-gray-800/80 border-gray-100 dark:border-gray-700 shadow-md'
-        }`}
+        className={'backdrop-blur-sm rounded-lg p-2 sm:p-3 border transition-all bg-white/80 dark:bg-gray-800/80 border-gray-100 dark:border-gray-700 shadow-md'}
       >
         <div className="flex items-center justify-between mb-1.5">
           <div className="h-3 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
@@ -45,7 +41,7 @@ export default function TimeZoneCard({ city, timezone, flag, offset, isSelected 
       </motion.div>
     );
   }
-  
+
   const dayjsLocale = locale === 'zh' ? 'zh-cn' : 'en';
   const time = timeInZone.format('HH:mm:ss');
   const date = timeInZone.locale(dayjsLocale).format('ddd, MMM D');

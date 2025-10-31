@@ -1,87 +1,147 @@
-# 🌍 World Time - 世界时间
+# World Time 🌍
 
-一个使用 Next.js 和 next-intl 构建的世界时间应用，支持中英文国际化。
+A modern, responsive world clock application built with Next.js 16, featuring real-time timezone display and beautiful analog clocks.
 
-## ✨ 特性
+## Features
 
-- 🕐 圆形模拟时钟显示本地时间
-- 🔍 智能搜索功能（使用 Fuse.js）
-- 🌐 支持全球 418 个时区
-- 🌍 支持中英文切换（使用 next-intl）
-- 🎨 现代化 UI 设计，支持深色模式
-- ⚡ 使用 Framer Motion 实现流畅动画
-- 📱 完全响应式设计
-- ⏰ 使用 Day.js 进行时间格式化
+- 🌐 Multi-language support (English & Chinese)
+- 🕐 Beautiful analog clock display
+- 🔍 Fuzzy search for timezones
+- 📱 Fully responsive design
+- 🎨 Dark mode support
+- ⚡ Fast and optimized with Vercel Analytics
+- 🔍 SEO optimized with sitemap and metadata
 
-## 🚀 快速开始
+## Tech Stack
 
-安装依赖：
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Internationalization**: next-intl
+- **Animation**: Framer Motion
+- **Search**: Fuse.js
+- **Date/Time**: Day.js
+- **Analytics**: Vercel Analytics & Speed Insights
+- **Code Quality**: ESLint with @stylistic/eslint-plugin
 
-```bash
-pnpm install
-```
+## Getting Started
 
-运行开发服务器：
+### Prerequisites
 
-```bash
+- Node.js 18+
+- pnpm (recommended) or npm
+
+### Installation
+
+1. Clone the repository:
+   \`\`\`bash
+   git clone <your-repo-url>
+   cd world-time
+   \`\`\`
+
+2. Install dependencies:
+   \`\`\`bash
+   pnpm install
+   \`\`\`
+
+3. Create environment file:
+   \`\`\`bash
+   cp .env.local.example .env.local
+   \`\`\`
+
+4. Update the site URL in \`.env.local\`:
+   \`\`\`
+   NEXT_PUBLIC_SITE_URL=https://your-domain.com
+   \`\`\`
+
+### Development
+
+Run the development server:
+\`\`\`bash
 pnpm dev
-```
+\`\`\`
 
-打开浏览器访问 [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3778](http://localhost:3778) in your browser.
 
-## 🏗️ 技术栈
+### Build
 
-- **Next.js 16** - React 框架
-- **next-intl** - 国际化解决方案
-- **Tailwind CSS** - 样式框架
-- **Framer Motion** - 动画库
-- **Day.js** - 时间处理库
-- **Fuse.js** - 模糊搜索引擎
-- **TypeScript** - 类型安全
+Build for production:
+\`\`\`bash
+pnpm build
+\`\`\`
 
-## 📁 项目结构
+Start production server:
+\`\`\`bash
+pnpm start
+\`\`\`
 
-```
+### Linting
+
+Run ESLint:
+\`\`\`bash
+pnpm lint
+\`\`\`
+
+## Project Structure
+
+\`\`\`
+world-time/
 ├── app/
-│   └── [locale]/          # 国际化路由
-│       ├── layout.tsx     # 布局组件
-│       └── page.tsx       # 主页面
-├── components/            # React 组件
-│   ├── WorldClock.tsx     # 世界时钟主组件
-│   ├── TimeZoneCard.tsx   # 时区卡片组件
-│   └── LanguageSwitcher.tsx # 语言切换器
-├── messages/              # 国际化翻译文件
-│   ├── en.json           # 英文
-│   └── zh.json           # 中文
-├── i18n.ts               # next-intl 配置
-└── middleware.ts         # 国际化中间件
-```
+│ ├── [locale]/ # Localized routes
+│ │ ├── layout.tsx # Root layout with metadata
+│ │ └── page.tsx # Home page
+│ ├── sitemap.ts # Dynamic sitemap
+│ ├── robots.ts # Robots.txt
+│ └── globals.css # Global styles
+├── components/ # React components
+│ ├── AnalogClock.tsx
+│ ├── TimeZoneCard.tsx
+│ ├── TimezoneSearch.tsx
+│ ├── WorldClock.tsx
+│ └── LanguageSwitcher.tsx
+├── hooks/ # Custom React hooks
+├── lib/ # Utility functions
+├── messages/ # i18n translations
+└── public/ # Static assets
+\`\`\`
 
-## 🌏 支持的时区
+## SEO Features
 
-应用支持所有 **417 个** IANA 时区，默认显示 18 个热门城市：
+- ✅ Dynamic metadata generation
+- ✅ Open Graph tags
+- ✅ Twitter Card support
+- ✅ Sitemap generation
+- ✅ Robots.txt
+- ✅ Multi-language support with hreflang
+- ✅ Web manifest for PWA support
+- ✅ Structured data ready
 
-- 🇨🇳 上海 / Shanghai
-- 🇯🇵 东京 / Tokyo
-- 🇰🇷 首尔 / Seoul
-- 🇭🇰 香港 / Hong Kong
-- 🇸🇬 新加坡 / Singapore
-- 🇦🇪 迪拜 / Dubai
-- 🇬🇧 伦敦 / London
-- 🇫🇷 巴黎 / Paris
-- 🇩🇪 柏林 / Berlin
-- 🇷🇺 莫斯科 / Moscow
-- 🇺🇸 纽约 / New York
-- 🇺🇸 洛杉矶 / Los Angeles
-- 🇺🇸 芝加哥 / Chicago
-- 🇨🇦 多伦多 / Toronto
-- 🇲🇽 墨西哥城 / Mexico City
-- 🇧🇷 圣保罗 / São Paulo
-- 🇦🇺 悉尼 / Sydney
-- 🇳🇿 奥克兰 / Auckland
+## Analytics
 
-所有时区数据通过 `Intl.supportedValuesOf('timeZone')` 自动生成。
+The app includes:
 
-## 📝 License
+- **Vercel Analytics**: Track page views and user interactions
+- **Speed Insights**: Monitor Core Web Vitals
+
+Analytics are automatically enabled when deployed on Vercel.
+
+## Deployment
+
+### Deploy on Vercel
+
+The easiest way to deploy is using [Vercel](https://vercel.com):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+1. Push your code to GitHub
+2. Import your repository in Vercel
+3. Set the environment variable \`NEXT_PUBLIC_SITE_URL\`
+4. Deploy!
+
+## License
 
 MIT
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.

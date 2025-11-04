@@ -84,8 +84,12 @@ export async function generateMetadata({
       },
     },
     icons: {
-      icon: '/icon.svg',
-      apple: '/apple-touch-icon.png',
+      icon: [
+        { url: '/icon.svg', type: 'image/svg+xml' },
+      ],
+      apple: [
+        { url: '/apple-icon.svg', type: 'image/svg+xml' },
+      ],
     },
     manifest: '/site.webmanifest',
     verification: {

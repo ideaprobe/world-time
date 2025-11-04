@@ -3,8 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import Analytics from '@/components/Analytics';
 import '../globals.css';
 
 export async function generateMetadata({
@@ -114,7 +113,6 @@ export default async function LocaleLayout({
           {children}
         </NextIntlClientProvider>
         <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

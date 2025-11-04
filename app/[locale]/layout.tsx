@@ -88,6 +88,9 @@ export async function generateMetadata({
       apple: '/apple-touch-icon.png',
     },
     manifest: '/site.webmanifest',
+    verification: {
+      google: 'g8usXl5E0lXEDqyN1qgoGyZVbd1k5ZFumAteXsqzqJE',
+    },
   };
 }
 
@@ -108,9 +111,6 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <head>
-        <meta name="google-site-verification" content="g8usXl5E0lXEDqyN1qgoGyZVbd1k5ZFumAteXsqzqJE" />
-      </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}

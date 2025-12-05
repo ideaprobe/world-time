@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://world-time-nine.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL!;
 
   const routes = routing.locales.map((locale) => ({
     url: `${siteUrl}/${locale}`,

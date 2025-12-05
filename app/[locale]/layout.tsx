@@ -15,7 +15,8 @@ export async function generateMetadata({
   const t = await getTranslations({ locale });
 
   const title = t('title');
-  const description = t('description');
+  // const description = t('description');
+  const description = '世界时钟、时区转换器、当前时间';
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://world-time-nine.vercel.app';
 
   return {

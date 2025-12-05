@@ -93,7 +93,7 @@ export async function generateMetadata({
     },
     manifest: '/site.webmanifest',
     verification: {
-      google: 'g8usXl5E0lXEDqyN1qgoGyZVbd1k5ZFumAteXsqzqJE',
+      google: '1VrMDcQ0pK0iwcz45ZzCK9qg6jSpnJRMX0DTjLM5Vs0',
     },
   };
 }

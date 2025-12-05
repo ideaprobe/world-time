@@ -31,17 +31,29 @@ export default function Home() {
           <LanguageSwitcher />
         </header>
 
-        {/* 圆形时钟 - 显示选中的时区 */}
-        {selectedTimezone && (
-          <div className="flex justify-center mb-6 sm:mb-8">
-            <AnalogClock timezone={selectedTimezone} size={180} />
-          </div>
-        )}
+        <main>
+          {/* 圆形时钟 - 显示选中的时区 */}
+          {selectedTimezone && (
+            <section className="mb-6 sm:mb-8">
+              <h2 className="sr-only">{t('selectedClock')}</h2>
+              <div className="flex justify-center">
+                <AnalogClock timezone={selectedTimezone} size={180} />
+              </div>
+            </section>
+          )}
 
-        <WorldClock
-          onTimezoneSelect={setSelectedTimezone}
-          selectedTimezone={selectedTimezone}
-        />
+          <section>
+            <h2 className="sr-only">{t('timezonesTitle')}</h2>
+            <WorldClock
+              onTimezoneSelect={setSelectedTimezone}
+              selectedTimezone={selectedTimezone}
+            />
+          </section>
+        </main>
+
+        <footer className="mt-8 sm:mt-12 text-center text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+          <p>{t('footer')}</p>
+        </footer>
 
       </div>
     </div>

@@ -2,6 +2,9 @@
   "title": "World Time",
   "description": "View current time across different time zones",
   "languageSwitch": "Switch Language",
+  "selectedClock": "Selected Time Zone",
+  "timezonesTitle": "Time Zones",
+  "footer": "© 2024 World Time. All rights reserved.",
   "search": {
     "placeholder": "Search timezone...",
     "showing": "Showing",

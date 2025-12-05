@@ -2,6 +2,9 @@
   "title": "世界时间",
   "description": "查看不同时区的当前时间",
   "languageSwitch": "切换语言",
+  "selectedClock": "选中的时区",
+  "timezonesTitle": "时区列表",
+  "footer": "© 2024 世界时间。保留所有权利。",
   "search": {
     "placeholder": "搜索时区...",
     "showing": "显示",

@@ -112,14 +112,9 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
-  const t = await getTranslations({ locale });
-  const description = t('description');
 
   return (
     <html lang={locale}>
-      <head>
-        <meta name="description" content={description} />
-      </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}

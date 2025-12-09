@@ -6,6 +6,9 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 const nextConfig: NextConfig = {
   /* config options here */
+  experimental: {
+    optimizePackageImports: ['icon-library'],
+  },
 };
 
 const withBundleAnalyzer = NextBundleAnalyzer({

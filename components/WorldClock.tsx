@@ -2,9 +2,13 @@
 
 import { useState } from 'react';
 import { useLocale } from 'next-intl';
-import TimeZoneCard from './TimeZoneCard';
 import TimezoneSearch from './TimezoneSearch';
 import { popularTimezones, timezoneLocales } from '@/lib/timezones';
+import dynamic from 'next/dynamic';
+
+const TimeZoneCard = dynamic(() => import('./TimeZoneCard'), {
+  ssr: false,
+});
 
 interface WorldClockProps {
   onTimezoneSelect: (timezone: string) => void;

@@ -1,6 +1,5 @@
 'use client';
 
-import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import 'dayjs/locale/zh-cn';
@@ -83,4 +82,4 @@ function TimeZoneCard({ city, timezone, flag, offset, isSelected = false, onClic
   );
 }
 
-export default memo(TimeZoneCard);
+export default TimeZoneCard;

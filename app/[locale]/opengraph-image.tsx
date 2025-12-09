@@ -1,6 +1,5 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
 export const alt = 'World Time - View current time across different time zones';
 export const size = {
   width: 1200,

@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import 'dayjs/locale/zh-cn';
@@ -15,7 +16,7 @@ interface TimeZoneCardProps {
   onClick?: () => void;
 }
 
-export default function TimeZoneCard({ city, timezone, flag, offset, isSelected = false, onClick }: TimeZoneCardProps) {
+function TimeZoneCard({ city, timezone, flag, offset, isSelected = false, onClick }: TimeZoneCardProps) {
   const locale = useLocale();
   const timestamp = useClock(1000);
   const timeInZone = useTimezone(timezone, timestamp);
@@ -81,3 +82,5 @@ export default function TimeZoneCard({ city, timezone, flag, offset, isSelected 
     </motion.div>
   );
 }
+
+export default memo(TimeZoneCard);

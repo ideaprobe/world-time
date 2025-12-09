@@ -2,9 +2,55 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import WorldClock from '@/components/WorldClock';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
-import AnalogClock from '@/components/AnalogClock';
+import dynamic from 'next/dynamic';
+
+const WorldClock = dynamic(() => import('@/components/WorldClock'), {
+  ssr: false,
+  loading: () => (
+    <div className="space-y-4 sm:space-y-6">
+      <div className="flex justify-center">
+        <div className="h-12 w-full max-w-md bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse" />
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-2 sm:gap-3">
+        {Array.from({ length: 18 }).map((_, i) => (
+          <div key={i} className="backdrop-blur-sm rounded-lg p-2 sm:p-3 border bg-white/80 dark:bg-gray-800/80 border-gray-100 dark:border-gray-700 shadow-md">
+            <div className="flex items-center justify-between mb-1.5">
+              <div className="h-3 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+              <span className="text-lg sm:text-xl">⏳</span>
+            </div>
+            <div className="space-y-1">
+              <div className="h-6 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+              <div className="h-2.5 w-24 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ),
+});
+
+const LanguageSwitcher = dynamic(() => import('@/components/LanguageSwitcher'), {
+  ssr: false,
+  loading: () => (
+    <div className="px-6 py-3 bg-indigo-600 rounded-lg flex items-center gap-2 animate-pulse">
+      <span className="w-16 h-5 bg-indigo-500 rounded" />
+    </div>
+  ),
+});
+
+const AnalogClock = dynamic(() => import('@/components/AnalogClock'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex flex-col items-center gap-3">
+      <div style={{ width: 180, height: 180 }} className="rounded-full bg-gray-100 dark:bg-gray-800 animate-pulse" />
+      <div className="text-center space-y-1.5">
+        <div className="h-5 w-28 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mx-auto" />
+        <div className="h-7 w-36 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mx-auto" />
+        <div className="h-3 w-32 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mx-auto" />
+      </div>
+    </div>
+  ),
+});
 
 export default function Home() {
   const t = useTranslations();

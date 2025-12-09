@@ -4,6 +4,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Analytics from '@/components/Analytics';
+import type { WebApplication, WithContext } from 'schema-dts';
 import '../globals.css';
 
 export async function generateMetadata({
@@ -114,11 +115,33 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const t = await getTranslations({ locale });
   const description = t('description');
+  const title = t('title');
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL!;
+
+  const schemaData: WithContext<WebApplication> = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: title,
+    description,
+    url: `${siteUrl}/${locale}`,
+    applicationCategory: 'UtilityApplication',
+    operatingSystem: 'Any',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    inLanguage: locale === 'zh' ? 'zh-CN' : 'en-US',
+  };
 
   return (
     <html lang={locale}>
       <head>
         <meta name="description" content={description} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
       </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
